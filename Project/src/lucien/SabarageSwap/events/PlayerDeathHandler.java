@@ -31,6 +31,12 @@ public class PlayerDeathHandler implements Listener {
 	    Bukkit.broadcastMessage(ChatColor.translateAlternateColorCodes('&', "&8[&5Lucien&l&dAI&r&8] &fReset the world to play again!"));
 	    for(Player onlinePlayer : Bukkit.getOnlinePlayers()) {
 		onlinePlayer.sendTitle(ChatColor.DARK_PURPLE + Core.playerList.get(0).getName(), ChatColor.WHITE + "Is this game's winner!", 10, 100, 10);
+		Main.pregame = true;
+		player.getInventory().addItem(PreGameManager.notReadyWool);
+		player.teleport(player.getWorld().getSpawnLocation());
+		//should give all players red wool, and send to lobby
+		player.setGamemode(GameMode.SURVIVAL)
+		//if there are issues with this code i added please let me know on spigot so i know why it wont work
 	    }
 	}
     }
